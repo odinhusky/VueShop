@@ -55,7 +55,8 @@ export default {
   methods: {
     signin() {
       const vm = this;
-      const api = `${process.env.VUE_APP_APIDOMAIN}/signin`;
+      // google 跨域的開源問題必須更改API並且在entry point 加入withCredential = true
+      const api = `${process.env.VUE_APP_APIDOMAIN}/admin/signin`;
       this.$http.post(api, vm.user)
         .then((res) => {
           console.log('res', res);
